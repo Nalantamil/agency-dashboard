@@ -11,7 +11,7 @@ import ReportsPage from './pages/ReportsPage';
 import './App.css';
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
 
   return (
     <Router>
@@ -19,7 +19,7 @@ function App() {
         <Navbar onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
         <div className="app-content">
           <Sidebar isOpen={sidebarOpen} />
-          <main className="main-content">
+          <main className={`main-content ${!sidebarOpen ? 'full-width' : ''}`}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/clients" element={<ClientsPage />} />

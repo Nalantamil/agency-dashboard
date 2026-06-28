@@ -1682,3 +1682,70 @@ body {
   border-color: var(--primary);
   box-shadow: 0 12px 30px rgba(99, 102, 241, 0.1);
 }
+
+@media (max-width: 768px) {
+  .app-content {
+    position: relative;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 250px;
+    left: -250px;
+    z-index: 998;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar.closed {
+    left: -250px;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card-number {
+    font-size: 24px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* Overlay when sidebar open on mobile */
+@media (max-width: 768px) {
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 997;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
